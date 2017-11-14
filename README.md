@@ -42,6 +42,11 @@ https://github.com/zensis-ltd/atvplayer-tvos
 2. Add framwork in to project.
 4. Build and Run.
 
+## Release Notes
+##### Version 1.0.1 (Nov 14, 2017)
+Bug Fixes
+* Fixed an issue where completeion event is fired when Ad is error.
+
 ## Contact Us
 Website: https://atvplayer.zensis.com 
 
