@@ -28,6 +28,44 @@ pod 'ATVPlayer'
    * Project -> General -> Add framework in to Embedded Binaries
 ![alt text][setup]
 
+#### Strip unwanted architectures for App submission
+Please add below script in "Run Script" to strip unwanted architechture. Otherwise the binary will be rejected by App store.
+This step is required for both Cocoapods and manual installation. 
+```sh
+APP_PATH="${TARGET_BUILD_DIR}/${WRAPPER_NAME}"
+
+find "$APP_PATH" -name 'ATVPlayer.framework' -type d | while read -r FRAMEWORK
+do
+FRAMEWORK_EXECUTABLE_PATH="$FRAMEWORK/ATVPlayer"
+
+EXTRACTED_ARCHS=()
+
+for ARCH in $ARCHS
+do
+lipo -extract "$ARCH" "$FRAMEWORK_EXECUTABLE_PATH" -o "$FRAMEWORK_EXECUTABLE_PATH-$ARCH"
+EXTRACTED_ARCHS+=("$FRAMEWORK_EXECUTABLE_PATH-$ARCH")
+done
+
+lipo -o "$FRAMEWORK_EXECUTABLE_PATH-merged" -create "${EXTRACTED_ARCHS[@]}"
+rm "${EXTRACTED_ARCHS[@]}"
+
+rm "$FRAMEWORK_EXECUTABLE_PATH"
+mv "$FRAMEWORK_EXECUTABLE_PATH-merged" "$FRAMEWORK_EXECUTABLE_PATH"
+
+done
+```
+
+##### Step 1
+Select you application target, then select "Build Phases"
+
+##### Step 2
+In Xcode menu, click "+", then select "New Run Script Phase"  
+![alt text][new_run_script]
+
+##### Step 3
+Paste the script inside the body of "Run Script"  
+![alt text][run_script]
+
 ## Import License
 1. [Contact us] for the license key
 2. In info.plist, add ATVVideoPlayerLicenseKey: [license key]
@@ -43,6 +81,10 @@ https://github.com/zensis-ltd/atvplayer-tvos
 4. Build and Run.
 
 ## Release Notes
+##### Version 1.0.2 (Nov 17, 2017)
+Bug Fixes
+* Fixed issue where when submitting to App Store, iTunes would complain about bitcode
+
 ##### Version 1.0.1 (Nov 14, 2017)
 Bug Fixes
 * Fixed an issue where completeion event is fired when Ad is error.
@@ -60,5 +102,7 @@ Copyright: 2017 Zensis Ltd.
 [logo]: https://atvplayer.zensis.com/demo/assets/logo_light.png
 [setup]: https://atvplayer.zensis.com/demo/assets/setup.png
 [license]: https://atvplayer.zensis.com/demo/assets/license.png
+[new_run_script]: https://atvplayer.zensis.com/demo/assets/new_run_script.png
+[run_script]: https://atvplayer.zensis.com/demo/assets/run_script.png
 [Download ATVPlayer framework]: https://atvplayer.zensis.com/atvplayer_sdk.zip
 
