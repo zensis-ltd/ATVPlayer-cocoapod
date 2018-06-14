@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name = "ATVPlayer"
-  s.version = "1.0.2"
+  s.version = "1.0.3"
   s.summary = "Video Advertising for tvOS"
   s.license = {"text"=>"Copyright 2017 Zensis", "type"=>"Copyright"}
   s.authors = {"Zensis"=>"service@zensis.com"}

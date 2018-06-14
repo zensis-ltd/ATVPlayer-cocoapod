@@ -48,6 +48,11 @@
 - (void)videoOnPlay;
 
 /**
+ * Called when the player is playing.
+ */
+- (void)videoOnTime:(double)second;
+
+/**
  * Called when the player pauses.
  *
  * @param second pause position in seconds
@@ -159,5 +164,10 @@
  * Dismiss the player.
  */
 - (void)dismiss;
+
+/**
+ * Get current Playing position
+ */
+-(double)currentPosition;
 
 @end
