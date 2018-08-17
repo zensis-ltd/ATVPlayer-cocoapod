@@ -82,6 +82,9 @@ https://github.com/zensis-ltd/atvplayer-tvos
 
 ## Release Notes
 
+##### Version 1.0.5 (Aug 17, 2018)
+Fixed potential memory issue.
+
 ##### Version 1.0.4 (Jun 22, 2018)
 Bug Fixes
 
