@@ -3,13 +3,13 @@
 //  ATVPlayer SDK
 //
 //  Created by Zensis on 29/7/2016.
-//  Copyright © 2016 Zensis. All rights reserved.
+//  Copyright © 2018 Zensis. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
 
 /**
- * To specifiy which roll of this ad.
+ * To specify which roll of this ad.
  */
 typedef enum {
     /** Represent a preroll ad */
@@ -33,6 +33,10 @@ typedef enum {
 @property(nonatomic) BOOL isPlayed;
 /** The ad is in which ad roll */
 @property(nonatomic, readonly) ATVAdRoll roll;
+/** Ad title from vast response */
+@property(nonatomic, copy) NSString *adTitle;
+/** Ad description from vast response */
+@property(nonatomic, copy) NSString *adDescription;
 
 /**
  * Please use the other init methods.
