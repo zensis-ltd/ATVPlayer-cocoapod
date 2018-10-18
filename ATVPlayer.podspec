@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.libraries = "xml2"
   s.requires_arc = true
   s.xcconfig = {"HEADER_SEARCH_PATHS"=>"$(SDKROOT)/usr/include/libxml2"}
-  s.source = { :path => '.' }
-  s.tvos.deployment_target    = '9.0'
+  s.source = { :git => "https://github.com/zensis-ltd/ATVPlayer-cocoapod.git", :tag => s.version.to_s }
+  s.tvos.deployment_target    = '10.0'
   s.tvos.vendored_framework   = 'tvos/ATVPlayer.framework'
 end
