@@ -18,22 +18,39 @@
  * To specify the type of error for a vast ad
  */
 typedef enum {
+    /** There was a problem requesting ads from the server */
     VastErrorRequestNetworkError,
+    /** The ad response was not understood and cannot be parsed. */
     VastErrorUnknownResponse,
+    /** An unexpected error occurred and the cause is not known. */
     VastErrorUnknownError,
+    /** Empty VAST response. */
     VastErrorEmptyResponse,
+    /** Assets were found in the VAST ad response for a linear ad, but none of them matched the video player's capabilities. */
     VastErrorLinearAssetMismatch,
+    /** Failed to load media assets from a VAST response. */
     VastErrorLoadTimeout,
+    /** No Ads VAST response after one or more wrappers. */
     VastErrorNoAdsAfterWrapper,
+    /** VAST schema validation error. */
     VastErrorSchemaValidationError,
+    /** The maximum number of VAST wrapper redirects has been reached. */
     VastErrorTooManyRedirects,
+    /** General VAST wrapper error. */
     VastErrorWrapperError,
+    /** General VAST wrapper error. */
     VastErrorPlaybackError,
 } ATVVastError;
 
+/**
+ * To specify the Ad's quartile
+ */
 typedef enum {
+    /** First quartile */
     VastFirstQuartile,
+    /** Mid point */
     VastMidpoint,
+    /** Third quartile */
     VastThirdQuartile,
 } ATVVastQuartile;
 
