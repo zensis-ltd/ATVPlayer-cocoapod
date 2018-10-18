@@ -3,7 +3,7 @@
 //  ATVPlayer SDK
 //
 //  Created by Zensis on 29/7/2016.
-//  Copyright © 2016 Zensis. All rights reserved.
+//  Copyright © 2018 Zensis. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>

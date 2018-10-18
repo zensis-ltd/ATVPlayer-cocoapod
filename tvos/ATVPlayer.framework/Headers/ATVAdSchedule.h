@@ -3,10 +3,11 @@
 //  ATVPlayer SDK
 //
 //  Created by Zensis on 29/7/2016.
-//  Copyright © 2016 Zensis. All rights reserved.
+//  Copyright © 2018 Zensis. All rights reserved.
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 
 @class ATVAd;
 
@@ -33,6 +34,11 @@
  * Customize the ad countdown text. Remember to have a <code>%d</code> placehold to show the number of seconds left for that video ad.
  */
 @property(nonatomic) NSString *adCountdownText;
+
+/**
+ *  Customize the ad pod countdown text. Remember to have <code>%1$d</code>, <code>%2$d</code> and <code>%3$d</code> to show the number of seconds left for recently playing video ad, the number of recently playing video ad and the total count of video ads respectively.
+ */
+@property(nonatomic) NSString *adpodCountdownText;
 
 /**
  * Ad countdown text font.
