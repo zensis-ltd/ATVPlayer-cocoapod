@@ -13,6 +13,7 @@
 @class ATVAd;
 @class ATVSubtitleConfig;
 @class ATVMediaItem;
+@import AVFoundation;
 
 /**
  * To specify the type of error for a vast ad
@@ -299,6 +300,15 @@ typedef enum {
  * @param startPosition the starting position of video playback, default is 0
  */
 - (void)playWithMediaItem:(ATVMediaItem *)item startPosition:(NSInteger)startPosition;
+
+/**
+ * Play video. Required to init AVURLAsset with your media url. By using this method, ATVMediaItem's URL will be ignore.
+ *
+ * @param item ATVMediaItem
+ * @param asset AVURLAsset, use for customization. E.g DRM implementation.
+ * @param startPosition the starting position of video playback, default is 0
+ */
+- (void)playWithMediaItem:(ATVMediaItem *)item AVURLAsset:(AVURLAsset*)asset startPosition:(NSInteger)startPosition;
 
 /**
  * Switch subtitle by index.
