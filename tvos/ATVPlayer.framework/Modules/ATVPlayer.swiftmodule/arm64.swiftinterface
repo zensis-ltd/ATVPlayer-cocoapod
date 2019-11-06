@@ -1,0 +1,124 @@
+// swift-interface-format-version: 1.0
+// swift-compiler-version: Apple Swift version 5.1 effective-4.2 (swiftlang-1100.0.270.13 clang-1100.0.33.7)
+// swift-module-flags: -target arm64-apple-tvos10.0 -enable-objc-interop -enable-library-evolution -swift-version 4.2 -enforce-exclusivity=checked -O -module-name ATVPlayer
+@_exported import ATVPlayer
+import Foundation
+import Swift
+extension XML {
+  public enum Accessor : Swift.CustomStringConvertible, Swift.Sequence {
+    case singleElement(ATVPlayer.XML.Element)
+    case sequence([ATVPlayer.XML.Element])
+    case failure(Swift.Error)
+    public init(_ element: ATVPlayer.XML.Element)
+    public init(_ sequence: [ATVPlayer.XML.Element])
+    public init(_ error: Swift.Error)
+    public subscript(path: Swift.Array<ATVPlayer.XMLSubscriptType>) -> ATVPlayer.XML.Accessor {
+      get
+    }
+    public subscript(path: ATVPlayer.XMLSubscriptType...) -> ATVPlayer.XML.Accessor {
+      get
+    }
+    public var name: Swift.String? {
+      get
+    }
+    public var text: Swift.String? {
+      get
+    }
+    public var bool: Swift.Bool? {
+      get
+    }
+    public var url: Foundation.URL? {
+      get
+    }
+    public var int: Swift.Int? {
+      get
+    }
+    public var double: Swift.Double? {
+      get
+    }
+    public var attributes: [Swift.String : Swift.String] {
+      get
+    }
+    public var all: [ATVPlayer.XML.Element]? {
+      get
+    }
+    public var names: [Swift.String]? {
+      get
+    }
+    public var error: Swift.Error? {
+      get
+    }
+    public var element: ATVPlayer.XML.Element? {
+      get
+    }
+    public var last: ATVPlayer.XML.Accessor {
+      get
+    }
+    public var first: ATVPlayer.XML.Accessor {
+      get
+    }
+    public func map<T>(_ transform: (ATVPlayer.XML.Accessor) -> T) -> [T]
+    @available(*, renamed: "flatMap")
+    public func mapWithSqueezeNil<T>(_ transform: (ATVPlayer.XML.Accessor) -> T?) -> [T]
+    public func makeIterator() -> Swift.AnyIterator<ATVPlayer.XML.Accessor>
+    public func count() -> Swift.Int
+    public var description: Swift.String {
+      get
+    }
+    public typealias Element = ATVPlayer.XML.Accessor
+    public typealias Iterator = Swift.AnyIterator<ATVPlayer.XML.Accessor>
+  }
+}
+public protocol XMLSubscriptType {
+}
+extension Int : ATVPlayer.XMLSubscriptType {
+}
+extension String : ATVPlayer.XMLSubscriptType {
+}
+infix operator ?= : DefaultPrecedence
+public func ?= <T>(lhs: inout T, rhs: T?)
+infix operator ?<< : DefaultPrecedence
+public func ?<< <T>(lhs: inout [T], rhs: T?)
+open class XML {
+  open class func parse(_ data: Foundation.Data) -> ATVPlayer.XML.Accessor
+  open class func parse(_ str: Swift.String) throws -> ATVPlayer.XML.Accessor
+  open class func parse(_ data: Foundation.Data, trimming manner: Foundation.CharacterSet) -> ATVPlayer.XML.Accessor
+  open class func parse(_ str: Swift.String, trimming manner: Foundation.CharacterSet) throws -> ATVPlayer.XML.Accessor
+  @objc deinit
+}
+public enum XMLError : Swift.Error {
+  case parseError
+  case accessError(description: Swift.String)
+}
+extension XML {
+  open class Element {
+    open var name: Swift.String
+    open var text: Swift.String?
+    open var attributes: [Swift.String : Swift.String]
+    open var childElements: [ATVPlayer.XML.Element]
+    weak open var parentElement: ATVPlayer.XML.Element?
+    public init(name: Swift.String)
+    @objc deinit
+  }
+}
+@objc open class ATVVastModel : ObjectiveC.NSObject {
+  @objc public var adModels: [ATVPlayer.ATVVastModel]!
+  @objc public var parent: ATVPlayer.ATVVastModel?
+  @objc public var standaloneAdModels: [ATVPlayer.ATVVastModel]!
+  @objc public func setVASTDocumentArray(vastDocumentArr: [Foundation.NSData])
+  @objc public func addVASTDocument(vastDoc: Foundation.NSData)
+  @objc public func vastVersion() -> Swift.String
+  @objc public func redirectUrl() -> Swift.String?
+  @objc public func trackingEvents() -> [Swift.String : [Foundation.URL]]
+  @objc public func mediaFiles() -> [ATVPlayer.SKVASTMediaFile]
+  @objc public func impressions() -> [ATVPlayer.SKVASTUrlWithId]
+  @objc public func errors() -> [ATVPlayer.SKVASTUrlWithId]
+  @objc public func adTitle() -> Swift.String?
+  @objc public func adDescription() -> Swift.String?
+  @objc public func setVastError(vastErr: ATVPlayer.SKVASTError)
+  @objc public func getVastError() -> ATVPlayer.SKVASTError
+  @objc public func sequencedAdModelsOfStandaloneAd() -> [ATVPlayer.ATVVastModel]
+  @objc public func sequencedAdModels() -> [ATVPlayer.ATVVastModel]
+  @objc override dynamic public init()
+  @objc deinit
+}
