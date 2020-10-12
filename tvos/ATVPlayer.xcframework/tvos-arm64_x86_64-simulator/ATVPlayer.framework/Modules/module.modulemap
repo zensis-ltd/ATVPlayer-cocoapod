@@ -1,0 +1,11 @@
+framework module ATVPlayer {
+  umbrella header "ATVPlayer.h"
+
+  export *
+  module * { export * }
+}
+
+module ATVPlayer.Swift {
+    header "ATVPlayer-Swift.h"
+    requires objc
+}

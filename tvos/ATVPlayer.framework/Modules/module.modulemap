@@ -1,7 +1,0 @@
-framework module ATVPlayer {
-  umbrella header "ATVPlayer.h"
-
-  export *
-  module * { export * }
-}
-
